@@ -31,9 +31,59 @@ This page  provides a comprehensive guide and sample project demonstrating how t
     - Enter the following details:
         - name: **apex-demo-group**
         - description: **Group for APEX demo projects**
-4. Create the `APEXDemoReadObjectsStorage` policy
-    - Select `Storage Management` and `Let users download objects from object Storage buckets`
-5. Create the `APEXDemoWriteObjectsStorage` policy
-    - Select `Storage Management` and `Let users write objects to object storage buckets`
+4. Create the `apex-demo-policy-storage-read` policy
+    - Select **Identity & Security**
+    - Select **Policies**
+    - Click the button **Create policy**
+    - Enter the following details:
+        - name: **apex-demo-policy-storage-read**
+        - description: **Policy for APEX demo projects object storage read**
+        - compartment: `apex-demo-compartment`  
+        - policy use case: **Storage Management**
+        - policy template: **Let users download objects from Object Storage buckets**
+        - identity domain: `apex-demo-domain`
+        - group: `apex-demo-group`
+        - location: `apex-demo-compartment`  
+5. Create the `apex-demo-policy-storage-write` policy
+    - Select **Identity & Security**
+    - Select **Policies**
+    - Click the button **Create policy**
+    - Enter the following details:
+        - name: **apex-demo-policy-storage-write**
+        - description: **Policy for APEX demo projects object storage write**
+        - compartment: `apex-demo-compartment`  
+        - policy use case: **Storage Management**
+        - policy template: **Let users write objects to Object Storage buckets**
+        - identity domain: `apex-demo-domain`
+        - group: `apex-demo-group`
+        - location: `apex-demo-compartment`  
 6. Create the `apex-demo-agent` user
-    - Edit user capabilities and select only `API Keys`
+    - Select **Identity & Security**
+    - Select **Domains**
+    - Select `apex-demo-domain`
+    - Select **Users**
+    - Click the button **Create user**
+    - Enter the following details:
+        - last name: **APEX demo agent**
+        - username: **apex-demo-agent**
+        - email: **agent@apex.com**
+        - groups: `apex-demo-group`
+7. Edit the `apex-demo-agent` user
+    - Select **Identity & Security**
+    - Select **Domains**
+    - Select `apex-demo-domain`
+    - Select **Users**
+    - Select `apex-demo-agent`
+    - Click the button **Edit user capabilities**
+    - Uncheck all items except **API keys**
+8. Generate the API keys for the `apex-demo-agent` user
+    - Select **Identity & Security**
+    - Select **Domains**
+    - Select `apex-demo-domain`
+    - Select **Users**
+    - Select `apex-demo-agent`
+    - Select **API keys**
+    - Click the button  **Add API key**
+    - Select **Generate API key pair**
+    - Click the button  **Download private key**
+    - Click the button  **Add**
