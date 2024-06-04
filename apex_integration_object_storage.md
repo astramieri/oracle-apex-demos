@@ -20,8 +20,17 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - name: **apex-demo-domain**
         - description: **Domain for APEX demo projects**
         - domain type: **free**
-        - compartment: **apex-demo-compartment**   
+        - domain administrator: *uncheck (do not create)*
+        - compartment: `apex-demo-compartment`  
 3. Create the `apex-demo-group` group
+    - Select **Identity & Security**
+    - Select **Domains**
+    - Select `apex-demo-domain`
+    - Select **Groups**
+    - Click the button **Create group**
+    - Enter the following details:
+        - name: **apex-demo-group**
+        - description: **Group for APEX demo projects**
 4. Create the `APEXDemoReadObjectsStorage` policy
     - Select `Storage Management` and `Let users download objects from object Storage buckets`
 5. Create the `APEXDemoWriteObjectsStorage` policy
