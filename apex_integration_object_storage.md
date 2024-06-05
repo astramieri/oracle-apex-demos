@@ -1,10 +1,14 @@
 # Oracle APEX Integration with OCI Object Storage
 
-This page  provides a comprehensive guide and sample project demonstrating how to integrate Oracle Application Express (APEX) with Object Storage using REST APIs. 
+This page provides a comprehensive guide and sample project demonstrating how to integrate Oracle Application Express (APEX) with Object Storage using REST APIs. 
+
+This guide is inspired by the article *Better File Storage in Oracle Cloud* by *Adrian Png*.  You can find the original article [here](https://blogs.oracle.com/connect/post/better-file-storage-in-oracle-cloud).
 
 ## OCI Setup
 
-1. Create the `apex-demo-compartment` compartment
+Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console and an account that has administrative rights within the tenancy (the root compartment).
+
+1. Create the compartment `apex-demo-compartment` 
     - Select **Identity & Security**
     - Select **Compartments**
     - Click the button **Create compartment**
@@ -12,7 +16,8 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - name: **apex-demo-compartment**
         - description: **Compartment for APEX demo projects**
         - parent compartment: **(root)**
-2. Create the `apex-demo-domain` domain
+    - Click the button **Create compartment**
+2. Create the domain `apex-demo-domain` 
     - Select **Identity & Security**
     - Select **Domains**
     - Click the button **Create domain**
@@ -22,7 +27,8 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - domain type: **free**
         - domain administrator: *uncheck (do not create)*
         - compartment: `apex-demo-compartment`  
-3. Create the `apex-demo-group` group
+    - Click the button **Create domain**
+3. Create the group `apex-demo-group` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -31,7 +37,7 @@ This page  provides a comprehensive guide and sample project demonstrating how t
     - Enter the following details:
         - name: **apex-demo-group**
         - description: **Group for APEX demo projects**
-4. Create the `apex-demo-policy-storage-read` policy
+4. Create the policy `apex-demo-policy-storage-read` 
     - Select **Identity & Security**
     - Select **Policies**
     - Click the button **Create policy**
@@ -44,7 +50,7 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - identity domain: `apex-demo-domain`
         - group: `apex-demo-group`
         - location: `apex-demo-compartment`  
-5. Create the `apex-demo-policy-storage-write` policy
+5. Create the policy `apex-demo-policy-storage-write` 
     - Select **Identity & Security**
     - Select **Policies**
     - Click the button **Create policy**
@@ -57,7 +63,7 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - identity domain: `apex-demo-domain`
         - group: `apex-demo-group`
         - location: `apex-demo-compartment`  
-6. Create the `apex-demo-agent` user
+6. Create the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -68,7 +74,7 @@ This page  provides a comprehensive guide and sample project demonstrating how t
         - username: **apex-demo-agent**
         - email: **agent@apex.com**
         - groups: `apex-demo-group`
-7. Edit the `apex-demo-agent` user
+7. Edit the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -76,7 +82,7 @@ This page  provides a comprehensive guide and sample project demonstrating how t
     - Select `apex-demo-agent`
     - Click the button **Edit user capabilities**
     - Uncheck all items except **API keys**
-8. Generate the API keys for the `apex-demo-agent` user
+8. Generate the API keys for the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
