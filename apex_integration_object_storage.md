@@ -93,3 +93,32 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
         - Storage tier: **Standard**
         - Encryption: **Encrypt using Oracle managed keys**
     - Confirm by clicking **Create bucket** 
+
+## The APEX application
+
+Complete the following tasks using Oracle Application Express and an account that has developer rights within the workspace.
+
+1. Create the **Web Credentials for OCI**
+    - Select **App Builder**
+    - Select **Workspace Utilities**
+    - Select **Web Credentials**
+    - Click the button **Create**
+    - Enter the following details:
+        - Name: **OCI APEX Demo Agent**
+        - Statici ID: **OCI _APEX_DEMO_AGENT**
+        - Authentication type: **Oracle Cloud Infrastructure (OCI)**
+        - OCI User ID: **(enter secret)**
+        - OCI Private Key: **(enter secret)**
+        - OCI Tenancy ID: **(enter secret)**
+        - OCI Public Key Fingerprint: **(enter secret)**
+    - Confirm by clicking **Create** 
+2. Create the REST Data Source `list-buckets`
+    - Select **Shared Components**
+    - Select **REST Data Sources**
+    - Click the button **Create**
+    - Select **Create REST Data Source *From scratch***
+    - Click the button **Next**
+    - Enter the following details:
+        - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
+        - Name: **list_buckets**
+        - Encryption: **https://objectstorage.<region>.oraclecloud.com/n/<namespace>/**
