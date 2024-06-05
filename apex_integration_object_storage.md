@@ -121,4 +121,4 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
         - Name: **list_buckets**
-        - Encryption: **https://objectstorage.<region>.oraclecloud.com/n/<namespace>/**
+        - Encryption: **objectstorage.[region].oraclecloud.com/n/[namespace]/**
