@@ -16,7 +16,7 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
         - name: **apex-demo-compartment**
         - description: **Compartment for APEX demo projects**
         - parent compartment: **(root)**
-    - Click the button **Create compartment**
+    - Confirm by clicking **Create compartment**
 2. Create the domain `apex-demo-domain` 
     - Select **Identity & Security**
     - Select **Domains**
@@ -27,7 +27,7 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
         - domain type: **free**
         - domain administrator: *uncheck (do not create)*
         - compartment: `apex-demo-compartment`  
-    - Click the button **Create domain**
+    - Confirm by clicking **Create domain**
 3. Create the group `apex-demo-group` 
     - Select **Identity & Security**
     - Select **Domains**
@@ -37,33 +37,21 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Enter the following details:
         - name: **apex-demo-group**
         - description: **Group for APEX demo projects**
-4. Create the policy `apex-demo-policy-storage-read` 
+    - Confirm by clicking **Create group** 
+4. Create the policy `apex-demo-policy-object-storage` 
     - Select **Identity & Security**
     - Select **Policies**
     - Click the button **Create policy**
     - Enter the following details:
-        - name: **apex-demo-policy-storage-read**
-        - description: **Policy for APEX demo projects object storage read**
+        - name: **apex-demo-policy-storage**
+        - description: **Policy for APEX demo projects object storage**
         - compartment: `apex-demo-compartment`  
-        - policy use case: **Storage Management**
-        - policy template: **Let users download objects from Object Storage buckets**
-        - identity domain: `apex-demo-domain`
-        - group: `apex-demo-group`
-        - location: `apex-demo-compartment`  
-5. Create the policy `apex-demo-policy-storage-write` 
-    - Select **Identity & Security**
-    - Select **Policies**
-    - Click the button **Create policy**
-    - Enter the following details:
-        - name: **apex-demo-policy-storage-write**
-        - description: **Policy for APEX demo projects object storage write**
-        - compartment: `apex-demo-compartment`  
-        - policy use case: **Storage Management**
-        - policy template: **Let users write objects to Object Storage buckets**
-        - identity domain: `apex-demo-domain`
-        - group: `apex-demo-group`
-        - location: `apex-demo-compartment`  
-6. Create the user `apex-demo-agent` 
+        - policy builder: *(enable manual editor and enter the following)*
+            - *Allow group 'apex-demo-domain'/'apex-demo-group' to read buckets in compartment apex-demo-compartment*
+            - *Allow group 'apex-demo-domain'/'apex-demo-group' to read objects in compartment apex-demo-compartment*
+            - *Allow group 'apex-demo-domain'/'apex-demo-group' to manage objects in compartment apex-demo-compartment where any {request.permission='OBJECT_CREATE', request.permission='OBJECT_INSPECT'}*
+    - Confirm by clicking **Create policy** 
+5. Create the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -74,7 +62,8 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
         - username: **apex-demo-agent**
         - email: **agent@apex.com**
         - groups: `apex-demo-group`
-7. Edit the user `apex-demo-agent` 
+    - Confirm by clicking **Create user** 
+6. Edit the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -82,7 +71,8 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select `apex-demo-agent`
     - Click the button **Edit user capabilities**
     - Uncheck all items except **API keys**
-8. Generate the API keys for the user `apex-demo-agent` 
+    - Confirm by clicking **Save changes**
+7. Generate the API keys for the user `apex-demo-agent` 
     - Select **Identity & Security**
     - Select **Domains**
     - Select `apex-demo-domain`
@@ -91,5 +81,5 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select **API keys**
     - Click the button  **Add API key**
     - Select **Generate API key pair**
-    - Click the button  **Download private key**
-    - Click the button  **Add**
+    - Click the button **Download private key**
+    - Confirm by clicking **Add**
