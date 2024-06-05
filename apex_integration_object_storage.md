@@ -13,20 +13,20 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select **Compartments**
     - Click the button **Create compartment**
     - Enter the following details:
-        - name: **apex-demo-compartment**
-        - description: **Compartment for APEX demo projects**
-        - parent compartment: **(root)**
+        - Name: **apex-demo-compartment**
+        - Description: **Compartment for APEX demo projects**
+        - Parent compartment: **(root)**
     - Confirm by clicking **Create compartment**
 2. Create the domain `apex-demo-domain` 
     - Select **Identity & Security**
     - Select **Domains**
     - Click the button **Create domain**
     - Enter the following details:
-        - name: **apex-demo-domain**
-        - description: **Domain for APEX demo projects**
-        - domain type: **free**
-        - domain administrator: *uncheck (do not create)*
-        - compartment: `apex-demo-compartment`  
+        - Name: **apex-demo-domain**
+        - Description: **Domain for APEX demo projects**
+        - Domain type: **free**
+        - Domain administrator: *uncheck (do not create)*
+        - Compartment: `apex-demo-compartment`  
     - Confirm by clicking **Create domain**
 3. Create the group `apex-demo-group` 
     - Select **Identity & Security**
@@ -35,18 +35,18 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select **Groups**
     - Click the button **Create group**
     - Enter the following details:
-        - name: **apex-demo-group**
-        - description: **Group for APEX demo projects**
+        - Name: **apex-demo-group**
+        - Description: **Group for APEX demo projects**
     - Confirm by clicking **Create group** 
 4. Create the policy `apex-demo-policy-object-storage` 
     - Select **Identity & Security**
     - Select **Policies**
     - Click the button **Create policy**
     - Enter the following details:
-        - name: **apex-demo-policy-storage**
-        - description: **Policy for APEX demo projects object storage**
-        - compartment: `apex-demo-compartment`  
-        - policy builder: *(enable manual editor and enter the following)*
+        - Name: **apex-demo-policy-storage**
+        - Description: **Policy for APEX demo projects object storage**
+        - Compartment: `apex-demo-compartment`  
+        - Policy builder: *(enable manual editor and enter the following)*
             - *Allow group 'apex-demo-domain'/'apex-demo-group' to read buckets in compartment apex-demo-compartment*
             - *Allow group 'apex-demo-domain'/'apex-demo-group' to read objects in compartment apex-demo-compartment*
             - *Allow group 'apex-demo-domain'/'apex-demo-group' to manage objects in compartment apex-demo-compartment where any {request.permission='OBJECT_CREATE', request.permission='OBJECT_INSPECT'}*
@@ -58,10 +58,10 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select **Users**
     - Click the button **Create user**
     - Enter the following details:
-        - last name: **APEX demo agent**
-        - username: **apex-demo-agent**
-        - email: **agent@apex.com**
-        - groups: `apex-demo-group`
+        - Last name: **APEX demo agent**
+        - Username: **apex-demo-agent**
+        - Email: **agent@apex.com**
+        - Groups: `apex-demo-group`
     - Confirm by clicking **Create user** 
 6. Edit the user `apex-demo-agent` 
     - Select **Identity & Security**
@@ -83,3 +83,13 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
     - Select **Generate API key pair**
     - Click the button **Download private key**
     - Confirm by clicking **Add**
+8. Create the bucket `apex-demo-bucket`
+    - Select **Storage**
+    - Select **Object Storage & Archive Storage**
+    - Ensure that the `apex-demo-compartment` is selected
+    - Click the button **Create bucket**
+    - Enter the following details:
+        - Name: **apex-demo-bucket**
+        - Storage tier: **Standard**
+        - Encryption: **Encrypt using Oracle managed keys**
+    - Confirm by clicking **Create bucket** 
