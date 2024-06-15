@@ -162,7 +162,7 @@ Complete the following tasks using Oracle Application Express and an account tha
         - Parameter Type: **URL Pattern**
         - Parameter Name: **bucket_name**
         - Parameter Value: **apex-demo-bucket**
-        - Is Static: **yes**
+        - Is Static: **no**
     - Enter the following details:
         - Parameter Type: **URL Query String**
         - Parameter Name: **fields**
