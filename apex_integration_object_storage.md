@@ -121,4 +121,21 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
         - Name: **list_buckets**
-        - Encryption: **objectstorage.[region].oraclecloud.com/n/[namespace]/**
+        - Encryption: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/**
+    - Click the button **Next**
+    - Enter the following details:
+        - Service URL Path: **/b/**
+    - Click the button **Next**
+    - Enter the following details:
+        - Authentication Required: **(select yes)**
+        - Credentials: **OCI APEX Demo Agent**
+    - Click the button **Advanced**
+    - Enter the following details:
+        - Parameter Type: **URL Query String**
+        - Parameter Name: **compartmentId**
+        - Parameter Value: **(enter secret)**
+        - Is Static: **(select yes)**
+    - Click the button **Discover**
+    - Click the button **Create REST Data Source**
+
+
