@@ -112,7 +112,7 @@ Complete the following tasks using Oracle Application Express and an account tha
         - OCI Tenancy ID: **(enter secret)**
         - OCI Public Key Fingerprint: **(enter secret)**
     - Confirm by clicking **Create** 
-2. Create the REST Data Source `list-buckets`
+2. Create the REST Data Source `list_buckets`
     - Select **Shared Components**
     - Select **REST Data Sources**
     - Click the button **Create**
@@ -121,7 +121,7 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
         - Name: **list_buckets**
-        - Encryption: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/**
+        - URL Endpoint: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/**
     - Click the button **Next**
     - Enter the following details:
         - Service URL Path: **/b/**
@@ -133,8 +133,41 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - Parameter Type: **URL Query String**
         - Parameter Name: **compartmentId**
-        - Parameter Value: **(enter secret)**
-        - Is Static: **(select yes)**
+        - Parameter Value: **(secret)**
+        - Is Static: **yes**
+    - Click the button **Discover**
+    - Click the button **Create REST Data Source**
+3. Create the REST Data Source `list_objects`
+    - Select **Shared Components**
+    - Select **REST Data Sources**
+    - Click the button **Create**
+    - Select **Create REST Data Source *From scratch***
+    - Click the button **Next**
+    - Enter the following details:
+        - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
+        - Name: **list_objects**
+        - URL Endpoint: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/b/:bucket_name/o/**
+        - URL Parameter 1: **apex-demo-bucket**
+    - Click the button **Next**
+    - Enter the following details:
+        - Service URL Path: **b/:bucket_name/o/**
+    - Click the button **Next**
+    - Enter the following details:
+        - Pagination Type: **No Pagination**
+    - Enter the following details:
+        - Authentication Required: **yes**
+        - Credentials: **OCI APEX Demo Agent**
+    - Click the button **Advanced**
+    - Enter the following details:
+        - Parameter Type: **URL Pattern**
+        - Parameter Name: **bucket_name**
+        - Parameter Value: **apex-demo-bucket**
+        - Is Static: **yes**
+    - Enter the following details:
+        - Parameter Type: **URL Query String**
+        - Parameter Name: **fields**
+        - Parameter Value: **name,size,timeCreated,md5**
+        - Is Static: **yes**
     - Click the button **Discover**
     - Click the button **Create REST Data Source**
 
