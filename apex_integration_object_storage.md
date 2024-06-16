@@ -94,7 +94,7 @@ Complete the following tasks using the Oracle Cloud Infrastructure (OCI) console
         - Encryption: **Encrypt using Oracle managed keys**
     - Confirm by clicking **Create bucket** 
 
-## The APEX application
+## The APEX Application
 
 Complete the following tasks using Oracle Application Express and an account that has developer rights within the workspace.
 
