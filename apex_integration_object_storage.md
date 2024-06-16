@@ -121,7 +121,9 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
         - Name: **list_buckets**
-        - URL Endpoint: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/**
+        - URL Endpoint: **https://objectstorage.region.oraclecloud.com/n/namespace/**
+            - where *region* is (for example) **eu-milan-1**
+            - where *namespace* is (for example) **ahxtlhy6xkl1**
     - Click the button **Next**
     - Enter the following details:
         - Service URL Path: **/b/**
@@ -146,7 +148,9 @@ Complete the following tasks using Oracle Application Express and an account tha
     - Enter the following details:
         - REST Data Source Type: **Oracle Cloud Infrastructure (OCI)**
         - Name: **list_objects**
-        - URL Endpoint: **https://objectstorage.[region].oraclecloud.com/n/[namespace]/b/:bucket_name/o/**
+        - URL Endpoint: **https://objectstorage.region.oraclecloud.com/n/namespace/b/:bucket_name/o/**
+            - where *region* is (for example) **eu-milan-1**
+            - where *namespace* is (for example) **ahxtlhy6xkl1**
         - URL Parameter 1: **apex-demo-bucket**
     - Click the button **Next**
     - Enter the following details:
